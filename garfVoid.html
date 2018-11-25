@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Garfield Down</title>
+    <style>
+        body {
+            background-color: #CCDAFC;
+            text-align: center;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+        .everything {
+            margin-top: 200px;
+        }
+        .problem-description {
+            z-index: 10;
+            position: absolute;
+            top: 70px;
+            left: 135px;
+            font-size: 12px;
+            width: 100px;
+            text-align: center;
+            line-height: 10px;
+        }
+        .suggestion {
+            z-index: 20;
+            position: absolute;
+            top: 60px;
+            left: 320px;
+            width: 150px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 16px;
+        }
+        .content {
+            margin: auto;
+            width: 800px;
+            height: 250px;
+            text-align: left;
+            position: relative;
+        }
+        .base-image {
+            position: relative;
+            left: 100px;
+            top: 50px;
+            z-index: 1;
+        }
+        .altered {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            z-index: 100;
+            opacity: 0;
+        }
+        .title {
+            font-size: 30px;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div class="everything">
+    <div class="title">Error 404 - The page you wanted is missing!</div>
+    <div class="content">
+        <div class="problem-description">page not found errors</div>
+        <div class="suggestion">you could try calling service desk on 7325</div>
+        <img class="base-image" src="BaseImage.png" alt="base image of garfy"/>
+        <img class="altered" src="altered.png" alt="altered end panel"/>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        setTimeout(function() {
+            HelloDarknessMyOldFriend();
+        }, 7000);
+    });
+
+    function HelloDarknessMyOldFriend() {
+        $(".altered").animate({
+            opacity: 1
+        }, 5000, function () {
+            setTimeout(function () {
+                IntoTheLight();
+            }, 5000);
+        });
+    }
+    function IntoTheLight() {
+        $(".altered").animate({
+            opacity: 0
+        }, 5000, function () {
+            setTimeout(function () {
+                HelloDarknessMyOldFriend();
+            }, 5000);
+        });
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Garfield Down</title>
+    <style>
+        body {
+            background-color: #CCDAFC;
+            text-align: center;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+        .everything {
+            margin-top: 200px;
+        }
+        .content {
+            margin: auto;
+            width: 600px;
+            height: 140px;
+            text-align: left;
+            position: relative;
+        }
+        .base-image {
+            position: absolute;
+            z-index: 1;
+        }
+        .vanish-blanket {
+            position: absolute;
+            z-index: 70;
+            opacity: 1;
+        }
+        .vanish-text {
+            position: absolute;
+            z-index: 100;
+            opacity: 1;
+        }
+        .vanish-bubble {
+            position: absolute;
+            z-index: 80;
+            opacity: 1;
+        }
+        .title {
+            font-size: 30px;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div class="everything">
+    <div class="title">Error 404 - The page you wanted is missing!</div>
+    <div class="content">
+        <img class="base-image" src="VanishingBase.png" alt="base image of garfy"/>
+        <img class="vanish-blanket" src="VanishingCatBlanket.png" alt="cat in blanket" />
+        <img class="vanish-text" src="VanishingLastText.png" alt="last text" />
+        <img class="vanish-bubble" src="VanishingSpeechBubble.png" alt="speech bubble" />
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        ResetSequence();
+    });
+
+    function StartHideSequence() {
+        $(".vanish-text").animate({
+            opacity: 0
+        }, 5000, function () { });
+
+        setTimeout(function () {
+            $(".vanish-bubble").animate({
+                opacity: 0
+            }, 5000, function () { });
+        }, 4000);
+        setTimeout(function () {
+            $(".vanish-blanket").animate({
+                opacity: 0
+            }, 5000, function () { });
+        }, 6000);
+        setTimeout(function () {
+            ResetSequence();
+        }, 14000);
+    }
+
+
+
+    function ResetSequence() {
+        //$(".vanish-text").css("opacity", 1);
+        //$(".vanish-blanket").css("opacity", 1);
+        //$(".vanish-bubble").css("opacity", 1);
+
+        $(".vanish-text").animate({
+            opacity: 1
+        }, 1000, function() {});
+        $(".vanish-blanket").animate({
+            opacity: 1
+        }, 1000, function() {});
+        $(".vanish-bubble").animate({
+            opacity: 1
+        }, 1000, function() {});
+
+        setTimeout(function () {
+            StartHideSequence();
+        }, 7000);
+    }
+
+
+</script>
+</body>
+</html>
